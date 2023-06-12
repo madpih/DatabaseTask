@@ -1,5 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
-
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace DatabaseTask.Core.Domain
 {
@@ -7,8 +7,27 @@ namespace DatabaseTask.Core.Domain
     {
         [Key]
         public Guid Id { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        public int EmployeeNumber { get; set; }
+        public char ContractNumber { get; set; }
+        public DateTime EmploymentStartDate { get; set; }
+        public Boolean EmploymentValid { get; set; }
+        public DateTime EmploymentEndDate { get; set; }
+        public char WorkEmail { get; set; }
+        public char WorkPhoneNumber { get; set; }
+        public char AccountNumber { get; set; }
+        public int TaxExemptIncome { get; set; }
+
+        public Person Person { get; set; }
+        public ICollection<Employee_child> Employee_children { get; set; }
+        public ICollection<Employee_Profession> Employee_Professions { get; set; }
+        public ICollection<Employee_access> Employee_accesses { get; set; }
+        public ICollection<DepartmentEmployee> DepartmentEmployees { get; set; }
+        public ICollection<Training> Training { get; set; }
+        public ICollection<Vacation> Vacations { get; set; }
+        public ICollection<SickLeave> SickLeaves { get; set; }
+        public ICollection<Salary> Salaries { get; set; }
+        public ICollection<Rent> Rents { get; set; }
+        public ICollection<HealthCheck> HealthChecks { get; set; }
 
         /// ESIMENE HINDELINE HARJUTUS
         /// Nõuded ja tegevus:
@@ -72,4 +91,3 @@ namespace DatabaseTask.Core.Domain
     //    public string FirstName { get; set; }
     //}
 }
-
